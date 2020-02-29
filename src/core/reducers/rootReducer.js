@@ -1,6 +1,13 @@
 import { combineReducers } from 'redux'
-import imgLoaderReducer from './img-loader-reducer'
+import { connectRouter } from 'connected-react-router'
+import filterSettingReducer from './filter_setting_reducer'
+import imgOverviewReducer from './img_overview_reducer'
 
-export default combineReducers({
-  imgLoaderReducer,
-})
+const createRootReducer = history =>
+  combineReducers({
+    router: connectRouter(history),
+    filterSettingReducer,
+    imgOverviewReducer,
+  })
+
+export default createRootReducer
