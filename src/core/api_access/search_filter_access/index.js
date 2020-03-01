@@ -1,9 +1,15 @@
 import Axios from 'axios'
+import {
+  baseApiUrl
+} from '../../../config';
 
 export const getImages = filterSetting => {
-  const { searchText: tags } = filterSetting
+  const {
+    searchText: tags
+  } = filterSetting
   return Axios({
     method: 'get',
+    baseURL: baseApiUrl,
     url: '/services/feeds/photos_public.gne',
     params: {
       format: 'json',
