@@ -115,9 +115,9 @@ export default class CardContainer extends React.Component {
       : 'No tags for this image'
 
     const tagsCollection = tags ? tags.split(' ') : []
-    const firstTenTags = tagsCollection.slice(0, 9)
-    const showTagsItem = firstTenTags && firstTenTags.length > 0
-    const enableShowAll = tagsCollection.length > 10
+    const firstEightTags = tagsCollection.slice(0, 7)
+    const showTagsItem = firstEightTags && firstEightTags.length > 0
+    const enableShowAll = tagsCollection.length > 8
     return (
       <>
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
@@ -175,7 +175,7 @@ export default class CardContainer extends React.Component {
                   <div>{searchByTagsText}</div>
                   {showTagsItem && (
                     <Grid container direction="row">
-                      {firstTenTags.map((item, index) => {
+                      {firstEightTags.map((item, index) => {
                         return (
                           <Button
                             style={tagItemStyle}

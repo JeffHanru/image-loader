@@ -14,6 +14,6 @@ export const AppContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    width: 60%;
+    width: 65%;
   }
 `
