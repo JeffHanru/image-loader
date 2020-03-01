@@ -27,5 +27,5 @@ export const configureStore = () => {
     composeEnhancers(applyMiddleware(thunk, routerMiddleware(history)))
   )
   const persistor = persistStore(store)
-  return store
+  return { store, persistor }
 }
