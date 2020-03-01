@@ -1,20 +1,16 @@
 import Axios from 'axios'
 import {
-  baseApiUrl
+  apiUrlForFetchImage
 } from '../../../config';
 
 export const getImages = filterSetting => {
   const {
     searchText: tags
   } = filterSetting
-  console.log(process.env.NODE_ENV)
-  console.log(baseApiUrl)
-  console.log(baseApiUrl[process.env.NODE_ENV])
-  const baseURL = baseApiUrl[process.env.NODE_ENV]
+  const URL = apiUrlForFetchImage[process.env.NODE_ENV]
   return Axios({
     method: 'get',
-    // baseURL: baseApiUrl,
-    url: `${baseURL}/services/feeds/photos_public.gne`,
+    url: URL,
     params: {
       format: 'json',
       nojsoncallback: '1',
@@ -25,6 +21,6 @@ export const getImages = filterSetting => {
         .join(','),
     },
   }).then(response => {
-    return response
+    return process.env.NODE_ENV === 'development' ? response : response.data
   })
 }
