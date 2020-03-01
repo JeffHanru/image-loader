@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import 'typeface-roboto'
 import { Grid } from '@material-ui/core'
-import { SearchFilter, ImageContainer } from '../index'
+import { SearchFilter, ImageContainer, LoadingSpinner } from '../index'
 import { AppContainer } from '../../styled_components'
+import { ErrorContainer } from '../../components'
 import './App.css'
 import { updateFilterSetting } from '../../actions/filter_setting_actions'
 
@@ -16,19 +17,30 @@ class App extends React.Component {
   }
 
   render() {
+    const {
+      spinnerReducer: { primarySpinner = false },
+      errorReducer: { error = '' },
+    } = this.props
     return (
       <Grid container justify="center">
         <AppContainer data-name="app-container">
           <SearchFilter />
-          <ImageContainer />
+          {error && <ErrorContainer error={error} />}
+          {primarySpinner ? <LoadingSpinner /> : <ImageContainer />}
         </AppContainer>
       </Grid>
     )
   }
 }
 
-const mapStateToProps = ({ imgOverviewReducer }) => ({
+const mapStateToProps = ({
   imgOverviewReducer,
+  spinnerReducer,
+  errorReducer,
+}) => ({
+  imgOverviewReducer,
+  spinnerReducer,
+  errorReducer,
 })
 
 const mapDispatchToProps = dispatch => ({

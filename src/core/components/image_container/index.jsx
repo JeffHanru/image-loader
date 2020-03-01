@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core'
-import { SearchFilter, CardContainer } from '../index'
-import { AppContainer } from '../../styled_components'
+import { CardContainer } from '../index'
 import { updateFilterSetting } from '../../actions/filter_setting_actions'
+import { NoItem } from '../index'
 
 class ImageContainer extends React.Component {
   constructor(props) {
@@ -25,18 +25,21 @@ class ImageContainer extends React.Component {
   render() {
     const { imgOverviewReducer = {} } = this.props
     const { items = [] } = imgOverviewReducer
+    const showCard = items.length > 0
     return (
       <Grid container spacing={3}>
-        {items.map(item => {
-          return (
-            <Grid xs={12} md={4} lg={4} key={item.link} item={true}>
-              <CardContainer
-                item={item}
-                updateFilterSettingByTag={this.updateFilterSettingByTag}
-              />
-            </Grid>
-          )
-        })}
+        {!showCard && <NoItem />}
+        {showCard &&
+          items.map((item, index) => {
+            return (
+              <Grid xs={12} md={4} lg={4} key={item.link} item={true}>
+                <CardContainer
+                  item={item}
+                  updateFilterSettingByTag={this.updateFilterSettingByTag}
+                />
+              </Grid>
+            )
+          })}
       </Grid>
     )
   }

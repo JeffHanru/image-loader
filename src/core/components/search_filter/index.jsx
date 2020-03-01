@@ -1,7 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { Button, TextField, CircularProgress } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import { updateFilterSetting, fetchImages } from '../../actions'
+import { STANDARD_TIMEOUT } from '../../utils'
+import { initialState as initialFilterState } from '../../reducers/filter_setting_reducer'
+
+const SearchFilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-around;
+`
+
+const textFieldStyle = {
+  width: '60%',
+}
 
 class SearchFilter extends React.Component {
   constructor(props) {
@@ -24,25 +38,49 @@ class SearchFilter extends React.Component {
       fetchImages,
     } = this.props
     if (prevFilterSetting.searchText !== currentFilterSetting.searchText) {
-      fetchImages(currentFilterSetting)
+      clearTimeout(this.delayRequest)
+      this.delayRequest = setTimeout(
+        () => fetchImages(currentFilterSetting),
+        STANDARD_TIMEOUT
+      )
     }
   }
 
-  onSearchBoxChanged = event => {
-    const { filterSettingReducer, updateFilterSetting } = this.props
-    const updatedFilterSetting = {
-      ...filterSettingReducer,
-      searchText: event.target.value,
+  onSearchBoxChanged = filed => {
+    return event => {
+      const { filterSettingReducer, updateFilterSetting } = this.props
+      const updatedFilterSetting = {
+        ...filterSettingReducer,
+        [filed]: event.target.value,
+      }
+      updateFilterSetting(updatedFilterSetting)
     }
-    updateFilterSetting(updatedFilterSetting)
+  }
+
+  onResetClicked = () => {
+    const { updateFilterSetting, filterSettingReducer } = this.props
+    if (!filterSettingReducer.searchText) {
+      return
+    }
+    updateFilterSetting({ ...initialFilterState })
   }
 
   render() {
+    const { filterSettingReducer: filterSetting } = this.props
+    const { searchText = '' } = filterSetting
     return (
-      <div>
-        <Button variant="contained">hello world</Button>
-        <TextField onChange={this.onSearchBoxChanged} label="Please search" />
-      </div>
+      <SearchFilterContainer>
+        <TextField
+          value={searchText}
+          onChange={this.onSearchBoxChanged('searchText')}
+          label="Please search by tags"
+          style={textFieldStyle}
+          helperText="use space to seperate tags"
+        />
+        <Button onClick={this.onResetClicked} variant="contained">
+          Reset
+        </Button>
+      </SearchFilterContainer>
     )
   }
 }

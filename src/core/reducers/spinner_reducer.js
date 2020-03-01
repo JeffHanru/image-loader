@@ -1,17 +1,19 @@
 import { ACTION_TYPES } from '../utils'
 
-export const initialState = {
-  searchText: '',
+const initialState = {
+  primarySpinner: false,
 }
 
 export default (state = initialState, action) => {
-  const { type, filterSetting } = action
+  const { type } = action
   Object.freeze(state)
   const newState = Object.assign({}, state)
 
   switch (type) {
-    case ACTION_TYPES.UPDATE_FILTER_SETTING:
-      return Object.assign({}, newState, { ...filterSetting })
+    case ACTION_TYPES.TOGGLE_PRIMARY_SPINNER:
+      return Object.assign({}, newState, {
+        primarySpinner: !state.primarySpinner,
+      })
     default:
       return state
   }

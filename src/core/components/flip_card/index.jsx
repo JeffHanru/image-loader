@@ -38,13 +38,13 @@ const cardActionStyle = {
 const tagItemStyle = {
   margin: '2px',
   overflow: 'hidden',
-  'white-space': 'nowrap',
-  'text-overflow': 'ellipsis',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 }
 
 const showAllTagsStyle = {
   float: 'right',
-  'margin-top': '3px',
+  marginTop: '3px',
 }
 
 const modalStyle = {
@@ -52,8 +52,8 @@ const modalStyle = {
   border: '2px solid #000',
   margin: 'auto',
   width: '80%',
-  'margin-top': '10%',
-  'border-radius': '20px',
+  marginTop: '10%',
+  borderRadius: '20px',
   padding: '10px',
   outline: '0',
 }
@@ -99,7 +99,6 @@ export default class CardContainer extends React.Component {
     const {
       title = '',
       media = {},
-      description = '',
       author = '',
       published = '',
       tags = '',
@@ -127,6 +126,14 @@ export default class CardContainer extends React.Component {
                     TEXT_LENGTH_SETTING.SHORT
                   )}
                 </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="div"
+                >
+                  <div>Author: {author}</div>
+                  <div>Published date: {formattedPublishDate}</div>
+                </Typography>
               </CardContent>
             </CardActionArea>
             <CardActions style={cardActionStyle}>
@@ -151,7 +158,11 @@ export default class CardContainer extends React.Component {
                     TEXT_LENGTH_SETTING.LONG
                   )}{' '}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="div"
+                >
                   <div>Author: {author}</div>
                   <div>Published date: {formattedPublishDate}</div>
                   <div>{searchByTagsText}</div>
@@ -165,6 +176,7 @@ export default class CardContainer extends React.Component {
                             size="small"
                             color="primary"
                             onClick={() => this.onTagClicked(item)}
+                            key={item + index}
                           >
                             {item}
                           </Button>
@@ -215,6 +227,7 @@ export default class CardContainer extends React.Component {
                     size="small"
                     color="primary"
                     onClick={() => this.onTagClicked(item)}
+                    key={item + index}
                   >
                     {item}
                   </Button>

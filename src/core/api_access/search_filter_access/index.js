@@ -9,7 +9,10 @@ export const getImages = filterSetting => {
       format: 'json',
       nojsoncallback: '1',
       tagmode: 'any',
-      tags,
+      tags: tags
+        .trim()
+        .split(' ')
+        .join(','),
     },
   }).then(response => {
     return response
