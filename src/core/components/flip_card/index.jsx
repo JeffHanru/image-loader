@@ -60,7 +60,7 @@ const modalStyle = {
   borderRadius: '20px',
   padding: '10px',
   outline: '0',
-  overflow: 'scroll',
+  overflowY: 'scroll',
   height: '400px',
 }
 
