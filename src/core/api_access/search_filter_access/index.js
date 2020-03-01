@@ -7,10 +7,14 @@ export const getImages = filterSetting => {
   const {
     searchText: tags
   } = filterSetting
+  console.log(process.env.NODE_ENV)
+  console.log(baseApiUrl)
+  console.log(baseApiUrl[process.env.NODE_ENV])
+  const baseURL = baseApiUrl[process.env.NODE_ENV]
   return Axios({
     method: 'get',
-    baseURL: baseApiUrl,
-    url: '/services/feeds/photos_public.gne',
+    // baseURL: baseApiUrl,
+    url: `${baseURL}/services/feeds/photos_public.gne`,
     params: {
       format: 'json',
       nojsoncallback: '1',
