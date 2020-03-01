@@ -6,7 +6,6 @@ import { SearchFilter, ImageContainer, LoadingSpinner } from '../index'
 import { AppContainer } from '../../styled_components'
 import { ErrorContainer } from '../../components'
 import './App.css'
-import { updateFilterSetting } from '../../actions/filter_setting_actions'
 
 class App extends React.Component {
   constructor(props) {
@@ -43,8 +42,4 @@ const mapStateToProps = ({
   errorReducer,
 })
 
-const mapDispatchToProps = dispatch => ({
-  updateFilterSetting: () => dispatch(updateFilterSetting()),
-})
-// todo remove redux here?
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, null)(App)

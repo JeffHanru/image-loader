@@ -30,7 +30,7 @@ class ImageContainer extends React.Component {
       <Grid container spacing={3}>
         {!showCard && <NoItem />}
         {showCard &&
-          items.map((item, index) => {
+          items.map(item => {
             return (
               <Grid xs={12} md={4} lg={4} key={item.link} item={true}>
                 <CardContainer

@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 import { Grid, Link, Modal } from '@material-ui/core'
-// to do improve
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -58,6 +57,11 @@ const modalStyle = {
   outline: '0',
 }
 
+const LinkContainer = styled.a`
+  text-decoration: none;
+  color: #3f51b5 !important;
+`
+
 export default class CardContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -102,6 +106,7 @@ export default class CardContainer extends React.Component {
       author = '',
       published = '',
       tags = '',
+      link = '',
     } = item
     const { m: previewImg = '' } = media
     const formattedPublishDate = moment(published).format('DD-MM-YYYY')
@@ -138,7 +143,9 @@ export default class CardContainer extends React.Component {
             </CardActionArea>
             <CardActions style={cardActionStyle}>
               <Button size="small" color="primary">
-                Share
+                <LinkContainer href={link} target="_blank">
+                  Full page
+                </LinkContainer>
               </Button>
               <Button
                 onClick={this.onLearnMoreClicked}
@@ -198,7 +205,9 @@ export default class CardContainer extends React.Component {
             </CardActionArea>
             <CardActions style={cardActionStyle}>
               <Button size="small" color="primary">
-                Share
+                <LinkContainer href={link} target="_blank">
+                  Full page
+                </LinkContainer>
               </Button>
               <Button
                 onClick={this.onLearnMoreClicked}
