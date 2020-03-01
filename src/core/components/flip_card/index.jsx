@@ -115,7 +115,7 @@ export default class CardContainer extends React.Component {
       : 'No tags for this image'
 
     const tagsCollection = tags ? tags.split(' ') : []
-    const firstEightTags = tagsCollection.slice(0, 7)
+    const firstEightTags = tagsCollection.slice(0, 8)
     const showTagsItem = firstEightTags && firstEightTags.length > 0
     const enableShowAll = tagsCollection.length > 8
     return (
