@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export const AppContainer = styled.div`
+export const AppContainer = styled.div `
+  width: 100%;
   font-family: sans-serif;
 
   @media (min-width: 576px) {

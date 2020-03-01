@@ -7,6 +7,7 @@ import { STANDARD_TIMEOUT } from '../../utils'
 import { initialState as initialFilterState } from '../../reducers/filter_setting_reducer'
 
 const SearchFilterContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;

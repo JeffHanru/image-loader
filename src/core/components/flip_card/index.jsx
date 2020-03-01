@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { Grid, Link, Modal } from '@material-ui/core'
+import { Grid, Link, Modal, Box } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -20,6 +20,11 @@ const CardImg = styled.img`
     height: 13vw;
     min-height: 13vw;
   }
+`
+
+const LinkContainer = styled.a`
+  text-decoration: none;
+  color: #3f51b5 !important;
 `
 
 const cardStyle = {
@@ -55,12 +60,9 @@ const modalStyle = {
   borderRadius: '20px',
   padding: '10px',
   outline: '0',
+  overflow: 'scroll',
+  height: '400px',
 }
-
-const LinkContainer = styled.a`
-  text-decoration: none;
-  color: #3f51b5 !important;
-`
 
 export default class CardContainer extends React.Component {
   constructor(props) {
@@ -225,8 +227,8 @@ export default class CardContainer extends React.Component {
           open={isModalOpen}
           onClose={this.toggleModal}
         >
-          <Typography style={modalStyle}>
-            <h2 id="simple-modal-title">Simply click the tag to search :)</h2>
+          <Box style={modalStyle}>
+            <h4 id="simple-modal-title">Simply click the tag to search :)</h4>
             <Grid container direction="row">
               {tagsCollection.map((item, index) => {
                 return (
@@ -243,7 +245,7 @@ export default class CardContainer extends React.Component {
                 )
               })}
             </Grid>
-          </Typography>
+          </Box>
         </Modal>
       </>
     )
