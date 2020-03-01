@@ -17,14 +17,14 @@ const CardImg = styled.img`
   height: auto;
   max-height: 180px;
   @media (min-width: 768px) {
-    height: 180px;
-    min-height: 180px;
+    height: 13vw;
+    min-height: 13vw;
   }
 `
 
 const cardStyle = {
   display: 'block',
-  height: '420px',
+  height: '480px',
   position: 'relative',
 }
 
