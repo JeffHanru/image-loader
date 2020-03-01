@@ -3,4 +3,4 @@ export const TEXT_LENGTH_SETTING = {
   LONG: 66,
 }
 
-export const STANDARD_TIMEOUT = 400
+export const STANDARD_TIMEOUT = 600
