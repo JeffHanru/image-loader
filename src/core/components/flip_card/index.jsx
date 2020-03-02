@@ -11,26 +11,25 @@ import styled from 'styled-components'
 import ReactCardFlip from 'react-card-flip'
 import * as helper from '../../utils/helper'
 import { TEXT_LENGTH_SETTING } from '../../utils'
+import { LinkContainer } from '../../utils/styled_components'
 
 const CardImg = styled.img`
   width: 100%;
   height: auto;
   max-height: 180px;
   @media (min-width: 768px) {
-    height: 13vw;
-    min-height: 13vw;
+    height: 20vw;
+    min-height: 20vw;
   }
 `
-
-const LinkContainer = styled.a`
-  text-decoration: none;
-  color: #3f51b5 !important;
-`
-
 const cardStyle = {
   display: 'block',
   height: '480px',
   position: 'relative',
+}
+
+const cardActionAreaStyle = {
+  height: '60%',
 }
 
 const cardActionStyle = {
@@ -124,7 +123,7 @@ export default class CardContainer extends React.Component {
       <>
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <Card style={cardStyle}>
-            <CardActionArea>
+            <CardActionArea style={cardActionAreaStyle}>
               <CardImg src={previewImg} />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="h2">

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AppContainer = styled.div `
+export const AppContainer = styled.div`
   width: 100%;
   font-family: sans-serif;
 
@@ -8,7 +8,7 @@ export const AppContainer = styled.div `
     width: 100%;
   }
   @media (min-width: 768px) {
-    width: 100%;
+    width: 60%;
   }
   @media (min-width: 992px) {
     width: 80%;
