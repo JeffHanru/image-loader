@@ -2,11 +2,13 @@ import Axios from 'axios'
 
 export const apiUrlForFetchImage = {
   development: 'http://localhost:3000/api/imagesearch',
-  production: 'https://www.flickr.com/services/feeds/photos_public.gne',
+  production: 'https://infinite-woodland-82557.herokuapp.com/api/imagesearch',
 }
 
 export const getImages = filterSetting => {
-  const { searchText: tags } = filterSetting
+  const {
+    searchText: tags
+  } = filterSetting
   const URL = apiUrlForFetchImage[process.env.NODE_ENV]
   return Axios({
     method: 'get',
@@ -21,6 +23,6 @@ export const getImages = filterSetting => {
         .join(','),
     },
   }).then(response => {
-    return process.env.NODE_ENV === 'development' ? response : response.data
+    return response.data
   })
 }

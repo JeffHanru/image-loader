@@ -69,5 +69,5 @@
   "devDependencies": {
     "prettier": "1.19.1"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://infinite-woodland-82557.herokuapp.com"
 }
