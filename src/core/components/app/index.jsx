@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import 'typeface-roboto'
 import { Grid } from '@material-ui/core'
 import { SearchFilter, ImageContainer, LoadingSpinner } from '../index'
-import { AppContainer } from '../../styled_components'
+import { AppContainer } from '../../utils/styled_components'
 import { ErrorContainer } from '../../components'
 import './App.css'
 

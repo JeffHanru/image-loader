@@ -1,10 +1,10 @@
 import React from 'react'
-import { CenterContentContainer } from '../layout_component'
+import { CenterContentContainer } from '../../utils/styled_components/conter_content_container'
 
-const NoItem = () => (
+const NoItemBox = () => (
   <CenterContentContainer>
     <div>No image is found</div>
   </CenterContentContainer>
 )
 
-export default NoItem
+export default NoItemBox

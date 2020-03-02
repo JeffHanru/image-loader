@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Grid } from '@material-ui/core'
 import { CardContainer } from '../index'
 import { updateFilterSetting } from '../../actions/filter_setting_actions'
-import { NoItem } from '../index'
+import { NoItemBox } from '../index'
 
 class ImageContainer extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class ImageContainer extends React.Component {
     const showCard = items.length > 0
     return (
       <Grid container spacing={3}>
-        {!showCard && <NoItem />}
+        {!showCard && <NoItemBox />}
         {showCard &&
           items.map(item => {
             return (

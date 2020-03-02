@@ -1,6 +1,6 @@
 import React from 'react'
 import { CircularProgress } from '@material-ui/core'
-import { CenterContentContainer } from '../layout_component'
+import { CenterContentContainer } from '../../utils/styled_components/conter_content_container'
 
 const LoaddingSpinner = () => {
   return (

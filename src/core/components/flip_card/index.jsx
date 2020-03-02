@@ -199,7 +199,7 @@ export default class CardContainer extends React.Component {
                       href="#"
                       onClick={this.toggleModal}
                     >
-                      Show all tags
+                      Show all tags ->
                     </Link>
                   )}
                 </Typography>
