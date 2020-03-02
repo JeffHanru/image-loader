@@ -34,6 +34,7 @@ const cardStyle = {
 
 const cardActionAreaStyle = {
   height: '60%',
+  cursor: 'default',
 }
 
 const cardActionStyle = {
