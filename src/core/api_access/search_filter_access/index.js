@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 export const apiUrlForFetchImage = {
-  development: 'http://localhost:3000/services/feeds/photos_public.gne',
+  development: 'http://localhost:3000/api/imagesearch',
   production: 'https://www.flickr.com/services/feeds/photos_public.gne',
 }
 
