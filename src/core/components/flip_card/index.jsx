@@ -21,6 +21,10 @@ const CardImg = styled.img`
     height: 20vw;
     min-height: 20vw;
   }
+  @media (min-width: 1200px) {
+    height: 14vw;
+    min-height: 14vw;
+  }
 `
 const cardStyle = {
   display: 'block',
